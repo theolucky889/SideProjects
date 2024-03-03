@@ -9,6 +9,8 @@
 
 for i in range(4):
     n = 1                           # initial number in the triangle
+    for _ in range(4 - i):          # Space before the number
+        print(" ", end=" ")
     for j in range(i + 1):          # Loop for triangle
         print(n, end=" ")           # Spacing between numbers
         n = n * (i - j) // (j + 1)  # Simplified Pascal triangle formula (n k) = n!/k!-(n-k)!
