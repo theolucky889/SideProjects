@@ -14,7 +14,7 @@ for i in range(4):
         n = n * (i - j) // (j + 1)  # Simplified Pascal triangle formula (n k) = n!/k!-(n-k)!
     print()
 
-pascal_triangle(4)
+
 
 
 
