@@ -6,13 +6,20 @@
     """
 #Pascal Triangle ^^^
 
-def pascal_triangle(rows):
 
-    for i in range(rows):
-        n = 1
-        for j in range(i + 1):
-            print(n, end=" ")
-            n = n * (i - j) // (j + 1)
-        print()
+for i in range(4):
+    n = 1                           # initial number in the triangle
+    for j in range(i + 1):          # Loop for triangle
+        print(n, end=" ")           # Spacing between numbers
+        n = n * (i - j) // (j + 1)  # Simplified Pascal triangle formula (n k) = n!/k!-(n-k)!
+    print()
 
 pascal_triangle(4)
+
+
+
+"""
+Pascal triangle formula = (n k) = n!/k!-(n-k)!
+(n k ) = n(n-1)*(n-2)...(n-k+1) / k(k-1)*(k-2)...1
+
+    """
