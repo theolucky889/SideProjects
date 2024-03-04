@@ -11,7 +11,7 @@ How to do:
 1. save the names, ages and coat colors of the three pets and print
 2. Find the oldest and youngest pet in the array
     """
-    
+# User input    
 pet_name_1 = str(input("Enter First Pet Name: "))
 pet_age_1 = float(input("Enter First Pet Age: "))
 pet_color_1 = str(input("Enter First Pet Color: "))
@@ -24,3 +24,6 @@ pet_name_3 = str(input("Enter Third Pet Name: "))
 pet_age_3 = float(input("Enter Third Pet Age: "))
 pet_color_3 = str(input("Enter Third Pet Color: "))
 
+# Finding the Oldest and Youngest pet
+oldest_pet = max(pet_age_1, pet_age_2, pet_age_3)
+youngest_pet = min(pet_age_1, pet_age_2, pet_age_3)
