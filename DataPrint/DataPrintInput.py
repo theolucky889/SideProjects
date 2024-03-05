@@ -13,16 +13,20 @@ How to do:
     """
 # User input
 pets = []    
+
+# pet 1
 pet_name_1 = str(input("Enter First Pet Name: "))
 pet_age_1 = float(input("Enter First Pet Age: "))
 pet_color_1 = str(input("Enter First Pet Color: "))
 pets.append({"name": pet_name_1, "age": pet_age_1})
 
+# pet 2
 pet_name_2 = str(input("Enter Second Pet Name: "))
 pet_age_2 = float(input("Enter Second Pet Age: "))
 pet_color_2 = str(input("Enter Second Pet Color: "))
 pets.append({"name": pet_name_2, "age": pet_age_2})
 
+# pet 3
 pet_name_3 = str(input("Enter Third Pet Name: "))
 pet_age_3 = float(input("Enter Third Pet Age: "))
 pet_color_3 = str(input("Enter Third Pet Color: "))
@@ -33,5 +37,5 @@ oldest_pet = max(pet_age_1, pet_age_2, pet_age_3)
 youngest_pet = min(pet_age_1, pet_age_2, pet_age_3)
 
 # Print oldest and youngest pet
-print(oldest_pet["name"], "The oldest one is", oldest_pet["age"])
-print(youngest_pet["name"], "The youngest one is", youngest_pet["age"])
+print(oldest_pet["name"], "The oldest one is", oldest_pet["age"], "years old")
+print(youngest_pet["name"], "The youngest one is", youngest_pet["age"], "years old")
