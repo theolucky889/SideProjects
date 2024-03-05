@@ -16,6 +16,7 @@ pet_name_1 = str(input("Enter First Pet Name: "))
 pet_age_1 = float(input("Enter First Pet Age: "))
 pet_color_1 = str(input("Enter First Pet Color: "))
 
+
 pet_name_2 = str(input("Enter Second Pet Name: "))
 pet_age_2 = float(input("Enter Second Pet Age: "))
 pet_color_2 = str(input("Enter Second Pet Color: "))
@@ -24,6 +25,12 @@ pet_name_3 = str(input("Enter Third Pet Name: "))
 pet_age_3 = float(input("Enter Third Pet Age: "))
 pet_color_3 = str(input("Enter Third Pet Color: "))
 
+pet_1 = (pet_name_1, pet_age_1, pet_color_1)
+pet_2 = (pet_name_2, pet_age_2, pet_color_2)
+pet_3 = (pet_name_3, pet_age_3, pet_color_3)
+
 # Finding the Oldest and Youngest pet
 oldest_pet = max(pet_age_1, pet_age_2, pet_age_3)
 youngest_pet = min(pet_age_1, pet_age_2, pet_age_3)
+
+# Print oldest and youngest pet
