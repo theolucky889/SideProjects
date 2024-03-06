@@ -26,8 +26,26 @@ A / B = [a1 / b1, a2 / b2]
     """
     
 class Rectangle:
-    def __init__(rectangle, width=0.0, length=0.0):
-        rectangle.width = width
-        rectangle.length = length
-    def area(rectangle):
-        return rectangle.width * rectangle.length
+    def __init__(self, width=0.0, length=0.0):
+        self.width = width
+        self.length = length
+    def area(self):
+        return self.width * self.length
+    
+class RectangleVolume:
+    def __init__(self, width=0.0, length=0.0, height=0.0):
+        super().__init__(width, length)
+        self.height = height
+        
+    def surface(self):
+        return 2 * (self.width * self.length + self.height * self.length + self.height * self.width)     # A=2(wl+hl+hw)
+        
+    def volume(self):
+        return self.width * self.height * self.length     # V=whl
+        
+    def main():
+        width = float(input("Input the width of the rectanglular prism:　"))
+        length = float(input("Input the length of the rectanglular prism:　"))
+        height = float(input("Input the height of the rectanglular prism:　"))
+    
+    
