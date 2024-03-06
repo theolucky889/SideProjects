@@ -22,6 +22,7 @@ A + B = [a1 + b1, a2 + b2]
 A - B = [a1 - b1, a2 - b2]
 A * B = [a1 * b1, a2 * b2]
 A / B = [a1 / b1, a2 / b2]
+
     """
     
 class Rectangle:
