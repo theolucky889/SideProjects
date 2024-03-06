@@ -23,3 +23,10 @@ A - B = [a1 - b1, a2 - b2]
 A * B = [a1 * b1, a2 * b2]
 A / B = [a1 / b1, a2 / b2]
     """
+    
+class Rectangle:
+    def __init__(rectangle, width=0.0, length=0.0):
+        rectangle.width = width
+        rectangle.length = length
+    def area(rectangle):
+        return rectangle.width * rectangle.length
