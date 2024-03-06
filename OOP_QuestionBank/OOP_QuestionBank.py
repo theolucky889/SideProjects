@@ -24,7 +24,7 @@ A * B = [a1 * b1, a2 * b2]
 A / B = [a1 / b1, a2 / b2]
 
     """
-    
+    # Part 1
 class Rectangle:
     def __init__(self, width=0.0, length=0.0):
         self.width = width
@@ -59,3 +59,6 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
+    
+# Part 2
