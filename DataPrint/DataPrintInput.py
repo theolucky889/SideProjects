@@ -15,21 +15,21 @@ How to do:
 pets = []    
 
 # pet 1
-pet_name_1 = int(input("Enter First Pet Name: "))
+pet_name_1 = input("Enter First Pet Name: ")
 pet_age_1 = float(input("Enter First Pet Age: "))
-pet_color_1 = int(input("Enter First Pet Color: "))
+pet_color_1 = input("Enter First Pet Color: ")
 pets.append({"name": pet_name_1, "age": pet_age_1})
 
 # pet 2
-pet_name_2 = int(input("Enter Second Pet Name: "))
+pet_name_2 = input("Enter Second Pet Name: ")
 pet_age_2 = float(input("Enter Second Pet Age: "))
-pet_color_2 = int(input("Enter Second Pet Color: "))
+pet_color_2 = input("Enter Second Pet Color: ")
 pets.append({"name": pet_name_2, "age": pet_age_2})
 
 # pet 3
-pet_name_3 = int(input("Enter Third Pet Name: "))
+pet_name_3 = input("Enter Third Pet Name: ")
 pet_age_3 = float(input("Enter Third Pet Age: "))
-pet_color_3 = int(input("Enter Third Pet Color: "))
+pet_color_3 = input("Enter Third Pet Color: ")
 pets.append({"name": pet_name_3, "age": pet_age_3})
 
 # Finding the Oldest and Youngest pet
