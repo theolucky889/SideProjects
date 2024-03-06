@@ -32,9 +32,10 @@ class Rectangle:
     def area(self):
         return self.width * self.length
     
-class RectangleVolume:
+class RectangleVolume(Rectangle):
     def __init__(self, width=0.0, length=0.0, height=0.0):
-        super().__init__(width, length)
+        Rectangle.__init__(self, width, length)
+        
         self.height = height
         
     def surface(self):
@@ -43,9 +44,18 @@ class RectangleVolume:
     def volume(self):
         return self.width * self.height * self.length     # V=whl
         
-    def main():
-        width = float(input("Input the width of the rectanglular prism:　"))
-        length = float(input("Input the length of the rectanglular prism:　"))
-        height = float(input("Input the height of the rectanglular prism:　"))
+def main():
+    width = float(input("Input the width of the rectanglular prism: "))
+    length = float(input("Input the length of the rectanglular prism: "))
+    height = float(input("Input the height of the rectanglular prism: "))
     
+    A = RectangleVolume(width, length, height)
+
+    surface_area = A.surface()
+    cube_volume = A.volume()
+
+    print("Surface area of the Rectangular Prism is: ", surface_area)
+    print("Volume of the Rectangular Prism is: ", cube_volume)
     
+if __name__ == "__main__":
+    main()
