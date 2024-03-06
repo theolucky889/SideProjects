@@ -37,5 +37,5 @@ oldest_pet = max(pets, key=lambda x: x["age"])
 youngest_pet = min(pets, key=lambda x: x["age"])
 
 # Print oldest and youngest pet
-print(oldest_pet["name"], ",", "The oldest one is", oldest_pet["age"], "years old")
-print(youngest_pet["name"], ",", "The youngest one is", youngest_pet["age"], "years old")
+print(oldest_pet["name"], ", ", "The oldest one is", oldest_pet["age"], "years old")
+print(youngest_pet["name"], ", ", "The youngest one is", youngest_pet["age"], "years old")
