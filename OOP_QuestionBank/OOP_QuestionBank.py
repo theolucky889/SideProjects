@@ -80,5 +80,10 @@ class Vector:
     def __div__(self, other):
         return Vector(self.x / other.x, self.y / other.y)
     
+    def __userinput__():
+        x = input("Input coordinates for x: ")
+        y = input("Input coordinates for y: ")
+        return Vector(x, y)
+    
     def __repr__(self):
         return f"[{self.x}, {self.y}]"
