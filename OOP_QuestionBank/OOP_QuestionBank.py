@@ -100,4 +100,5 @@ def main():
     print("A * B = ", A * B)
     print("A / B = ", A / B)
     
-    
+if __name__ == "__main__":
+    main()
