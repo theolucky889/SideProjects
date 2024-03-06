@@ -62,3 +62,23 @@ if __name__ == "__main__":
     
     
 # Part 2
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+    
+    def __mult__(self, other):
+        return Vector(self.x * other.x, self.y * other.y)
+    
+    def __div__(self, other):
+        return Vector(self.x / other.x, self.y / other.y)
+    
+    def __repr__(self):
+        return f"[{self.x}, {self.y}]"
