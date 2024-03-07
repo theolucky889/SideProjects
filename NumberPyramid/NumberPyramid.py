@@ -57,5 +57,5 @@ times = input("Pascal Triangle Input = ")
 
 for i in range(times):
     n = 1
-    n = n * (i - j) // (j + 1)
+
         
