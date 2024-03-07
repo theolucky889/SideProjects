@@ -15,9 +15,12 @@ class Vector:
     
     def scalar_mult(self, scalar):
         return Vector(self.x * scalar, self.y * scalar) # scalar
-    
-    def __div__(self, scalar):
-        return Vector(self.x / scalar, self.y / scalar)
+        
+    def scalar_div(self, scalar):
+        if scalar == 0:
+            print("Division by zero")
+        else:
+            return Vector(self.x / scalar, self.y / scalar)
     
     def __repr__(self):
         return f"[{self.x}, {self.y}]"
@@ -39,12 +42,12 @@ def main():
     
     # dot product of the vector
     print("A * B = ", A.dot_product(B))
-
     
     # scalar product of the vector
     scalar = float(input("Enter scalar for multiplication and division: "))
-    print("A * scalar = ", A * scalar)
-    print("A / scalar = ", A / scalar)
+    print("A * scalar = ", A.scalar_mult(scalar))
+    print("A / scalar = ", A.scalar_div(scalar))
+    
     
 if __name__ == "__main__":
     main()
