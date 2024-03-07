@@ -10,18 +10,21 @@ class Vector:
     def __sub__(self, other):
         return Vector(self.x - other.x, self.y - other.y)
     
-    def __mult__(self, other):
-        return Vector(self.x * other.x, self.y * other.y)
+    def dot_product(self, other):
+        return self.x * other.x + self.y * other.y   # dot product
     
-    def __div__(self, other):
-        return Vector(self.x / other.x, self.y / other.y)
+    def scalar_mult(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar) # scalar
+    
+    def __div__(self, scalar):
+        return Vector(self.x / scalar, self.y / scalar)
     
     def __repr__(self):
         return f"[{self.x}, {self.y}]"
 
 def get_user_vector():
-    x = input("Input x-coordinate: ")
-    y = input("Input y-coordinate: ")
+    x = float(input("Input x-coordinate: "))
+    y = float(input("Input y-coordinate: "))
     return Vector(x, y)
     
 def main():
@@ -33,8 +36,15 @@ def main():
     
     print("A + B = ", A + B) 
     print("A - B = ", A - B)
-    print("A * B = ", A * B)
-    print("A / B = ", A / B)
+    
+    # dot product of the vector
+    print("A * B = ", A.dot_product(B))
+
+    
+    # scalar product of the vector
+    scalar = float(input("Enter scalar for multiplication and division: "))
+    print("A * scalar = ", A * scalar)
+    print("A / scalar = ", A / scalar)
     
 if __name__ == "__main__":
     main()
