@@ -1,14 +1,16 @@
 # Part 2
+
+
 class Vector:
     def __init__(self, x, y):
         self.x = x
         self.y = y
         
-    def __add__(self, other):
-        return Vector(self.x + other.x, self.y + other.y)
+    def __add__(a, b):
+        return Vector(a.x + b.x, a.y + b.y)
     
-    def __sub__(self, other):
-        return Vector(self.x - other.x, self.y - other.y)
+    def __sub__(a, b):
+        return Vector(a.x - b.x, a.y - b.y)
     
     def dot_product(self, other):
         return self.x * other.x + self.y * other.y   # dot product
@@ -37,7 +39,7 @@ def main():
     print("Enter coordinates for vector B: ")
     B = get_user_vector()
     
-    print("A + B = ", A + B) 
+    print("A + B = ", A + B)
     print("A - B = ", A - B)
     
     # dot product of the vector
