@@ -6,7 +6,7 @@
     """
 #Pascal Triangle ^^^
 
-times=25
+times=5
 
 for i in range(times):
     n = 1                           # initial number in the triangle
