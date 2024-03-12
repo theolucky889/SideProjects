@@ -65,11 +65,10 @@ def generate_triangle(num_rows):
     return triangle
 
 def print_triangle(triangle):
-    max_width = len(" 0".join(map(str, triangle[-1])))
+    max_width = len(" ".join(map(str, triangle[-1])))
     for row in triangle:
         print(" ".join(map(str, row)).center(max_width))
-        #print(" 0".join(map(str, row)).center(len(triangle[-1]) * 3))
-        
+        #print(" ".join(map(str, row)).center(len(triangle[-1])))
 num_rows = int(input("Enter the number of rows in the Pascal Triangle: "))
 pascal_triangle = generate_triangle(num_rows)
 print_triangle(pascal_triangle)
