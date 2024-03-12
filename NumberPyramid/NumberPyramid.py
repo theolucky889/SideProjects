@@ -55,18 +55,20 @@ print ("".join(a+b+c+d))
 def generate_triangle(num_rows):
     triangle = []
     for i in range(num_rows):
-        initial = 1
+        initial = [1]
         if i > 0:
             prev_row = triangle[-1]
-            for j in range(len(prev_row) -1):
+            for j in range(len(prev_row) - 1):
                 initial.append(prev_row[j] + prev_row[j + 1])
             initial.append(1)
         triangle.append(initial)
     return triangle
 
 def print_triangle(triangle):
+    max_width = len(" 0".join(map(str, triangle[-1])))
     for row in triangle:
-        print(" ".join(map(str, row)).center(len(triangle[-1]) * 3))
+        print(" ".join(map(str, row)).center(max_width))
+        #print(" 0".join(map(str, row)).center(len(triangle[-1]) * 3))
         
 num_rows = int(input("Enter the number of rows in the Pascal Triangle: "))
 pascal_triangle = generate_triangle(num_rows)
