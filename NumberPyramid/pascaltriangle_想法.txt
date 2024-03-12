@@ -4,7 +4,7 @@
 4. create the triangle
 5. check if the row starts with 1 
 6. if its not 1, go to previous row and calculate using the pascal formula
-7. if correct, put the correct value into the triangle rows
+7. if correct, put the correct value into the current triangle rows
 8. add 1 to the end of the current row to complete the current row
 9. add the row to the triangle
 10. calculate the maximum input that the user has given
