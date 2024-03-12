@@ -8,5 +8,6 @@
 8. add 1 to the end of the current row to complete the current row
 9. add the row to the triangle
 10. calculate the maximum input that the user has given
-11. center the triangle
-12. output
+11. print the complete triangle
+12. center the triangle
+13. output
