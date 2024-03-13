@@ -11,7 +11,7 @@ How to do:
 1. save the names, ages and coat colors of the three pets and print
 2. Find the oldest and youngest pet in the array
     """
-# User input
+"""# User input
 pets = []    
 
 # pet 1
@@ -39,6 +39,7 @@ youngest_pet = min(pets, key=lambda x: x["age"])
 # Print oldest and youngest pet
 print(oldest_pet["name"], ", ", "The oldest one is", oldest_pet["age"], "years old")
 print(youngest_pet["name"], ", ", "The youngest one is", youngest_pet["age"], "years old")
+"""
 
 """
 1. class
@@ -69,6 +70,12 @@ for i in range(3):
     pet_name = input(f"Enter Pet {i+1} Name: ")
     pet_age = input(f"Enter Pet {i+1} Age: ")
     pet_color = input(f"Enter Pet {i+1} Color: ")
+    pet = Pet(pet_name, pet_age, pet_color)
 
-    
+pet_lists.add_pet(pet)
+
+oldest_pet, youngest_pet = pet_lists.age_difference
+
+print(f"{oldest_pet.name}, The oldest one is {oldest_pet.age} years old")
+print(f"{youngest_pet.name}, The oldest one is {youngest_pet.age} years old")    
         
