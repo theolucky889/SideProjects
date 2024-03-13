@@ -47,7 +47,12 @@ print(youngest_pet["name"], ", ", "The youngest one is", youngest_pet["age"], "y
 """
 
 class Pet:
-    def pet(name, age, color):
-        pets = []
+    def pet(self, name, age, color):
+        self.name = name
+        self.age = age
+        self.clor = color
+class PetList:
+    def pet_list(self):
+        self.pet = []
     
         
