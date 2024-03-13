@@ -55,4 +55,18 @@ class PetList:
     def pet_list(self):
         self.pet = []
     
+    def add_pet(self, pet):
+        self.pet.append(pet)
+    
+    def age_difference(self):
+        oldest_pet = max(pets, key=lambda x: x.age)
+        youngest_pet = min(pets, key=lambda x: x.age)
+        return oldest_pet, youngest_pet
+
+pet_lists = PetList()
+
+for i in range(3):
+    
+
+    
         
