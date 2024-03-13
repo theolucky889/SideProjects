@@ -66,7 +66,9 @@ class PetList:
 pet_lists = PetList()
 
 for i in range(3):
-    
+    pet_name = input(f"Enter Pet {i+1} Name: ")
+    pet_age = input(f"Enter Pet {i+1} Age: ")
+    pet_color = input(f"Enter Pet {i+1} Color: ")
 
     
         
