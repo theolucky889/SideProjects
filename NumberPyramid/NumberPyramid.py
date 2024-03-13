@@ -52,12 +52,26 @@ b = " " + b1 + " " + b2 + "\n"
 c = " " + c1 + " " + c2 + " " + c3 + "\n"
 d = " " + d1 + " " + d2 + " " + d3 + " " + d4 + "\n"
 
-print (a+b+c+d)
+print ("".join(a+b+c+d))
 
+def generate_triangle(num_rows):
+    triangle = []
+    for i in range(num_rows):
+        initial = [1]
+        if i > 0:
+            prev_row = triangle[-1]
+            for j in range(len(prev_row) - 1):
+                initial.append(prev_row[j] + prev_row[j + 1])
+            initial.append(1)
+        triangle.append(initial)
+    return triangle
 
-times = input("Pascal Triangle Input = ")
-
-for i in range(times):
-    n = 1
-
-        
+def print_triangle(triangle):
+    max_width = len(" ".join(map(str, triangle[-1])))
+    triangle_center = ("\n".join(" ".join(map(str, row)).center(max_width) for row in triangle))
+    return triangle_center    
+        #print(" ".join(map(str, row)).center(len(triangle[-1])))
+num_rows = int(input("Enter the number of rows in the Pascal Triangle: "))
+pascal_triangle = generate_triangle(num_rows)
+triangle_output = print_triangle(pascal_triangle)
+print(triangle_output)
