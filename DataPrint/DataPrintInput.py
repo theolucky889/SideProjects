@@ -45,3 +45,9 @@ print(youngest_pet["name"], ", ", "The youngest one is", youngest_pet["age"], "y
 2. array/list
 
 """
+
+class Pet:
+    def pet(name, age, color):
+        pets = []
+    
+        
