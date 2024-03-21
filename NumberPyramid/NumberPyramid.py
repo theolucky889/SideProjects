@@ -31,7 +31,7 @@ Pascal triangle formula = (n k) = n!/k!-(n-k)!
 2. spacing
 3. function(15 line limit)
     """
-
+""""
 a1 = "1"
 
 b1 = "1"
@@ -53,6 +53,10 @@ c = " " + c1 + " " + c2 + " " + c3 + "\n"
 d = " " + d1 + " " + d2 + " " + d3 + " " + d4 + "\n"
 
 print ("".join(a+b+c+d))
+"""
+
+
+
 
 def generate_triangle(num_rows):
     triangle = [["01"]]
@@ -66,8 +70,8 @@ def generate_triangle(num_rows):
     return triangle
 
 def print_triangle(triangle):
-    max_length = len(max(triangle[-1], key=len))
-    max_width = len(" ".join([num.zfill(max_length)for num in triangle[-1]]))
+    max_length = len(max(triangle[-1], key=len))    # Check for the biggest number at the bottom of the triangle
+    max_width = len(" ".join([num.zfill(max_length)for num in triangle[-1]]))  # placing triangle and adding 0's according to the biggest number at the bottom of the triangle
     for row in triangle:
         print(" ".join(num.zfill(max_length) for num in row).center(max_width))
 num_rows = int(input("Enter the number of rows in the Pascal Triangle: "))
