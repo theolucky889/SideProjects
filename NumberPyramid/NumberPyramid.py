@@ -55,23 +55,21 @@ d = " " + d1 + " " + d2 + " " + d3 + " " + d4 + "\n"
 print ("".join(a+b+c+d))
 
 def generate_triangle(num_rows):
-    triangle = []
-    for i in range(num_rows):
-        initial = [1]
-        if i > 0:
-            prev_row = triangle[-1]
-            for j in range(len(prev_row) - 1):
-                initial.append(prev_row[j] + prev_row[j + 1])
-            initial.append(1)
+    triangle = [["01"]]
+    for i in range(1, num_rows):
+        initial = ["01"]
+        for j in range(1, i):
+            new_row = int(triangle[i - 1][j - 1]) + int(triangle[i - 1][j])
+            initial.append(str(new_row).zfill(2))
+        initial.append("01")
         triangle.append(initial)
     return triangle
 
 def print_triangle(triangle):
-    max_width = len(" ".join(map(str, triangle[-1])))
-    triangle_center = ("\n".join(" ".join(map(str, row)).center(max_width) for row in triangle))
-    return triangle_center    
-        #print(" ".join(map(str, row)).center(len(triangle[-1])))
+    max_length = len(max(triangle[-1], key=len))
+    max_width = len(" ".join([num.zfill(max_length)for num in triangle[-1]]))
+    for row in triangle:
+        print(" ".join(num.zfill(max_length) for num in row).center(max_width))
 num_rows = int(input("Enter the number of rows in the Pascal Triangle: "))
 pascal_triangle = generate_triangle(num_rows)
-triangle_output = print_triangle(pascal_triangle)
-print(triangle_output)
+print_triangle(pascal_triangle)
