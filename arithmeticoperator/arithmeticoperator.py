@@ -1,6 +1,6 @@
 class arithmetic:
     def __init__(self, expression):
-        self.expression = expression
+        self.expression = expression.replace(' ', '')
         
     def operators(self):
         if "=" in self.expression:
