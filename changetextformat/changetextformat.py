@@ -9,6 +9,7 @@ class StringConverter:
         snake_case_string = self.string[0].lower()
         for char in self.string[1:]:
             if char.isupper() and snake_case_string:
+                snake_case_string += '_'
                 snake_case_string += char.lower()
             else:
                 snake_case_string += char.lower()
