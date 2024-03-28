@@ -15,4 +15,4 @@ newCls1=Cls("Jack")
 newCls2=Cls("Ken")
 newCls3=Cls("Amy")
 
-print(newCls1.DynamicFunc())
+print(newCls2.DynamicFunc())
