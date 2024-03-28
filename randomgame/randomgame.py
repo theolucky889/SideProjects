@@ -1,71 +1,62 @@
 import random
 
 class Player:
-    def __init__(self, name, numbers):
+    def __init__(self, name, dice):
         self.name = name
-        self.numbers = list(numbers)
+        self.dice = list(dice)
         
     def remove_number(self, number):
-        if number in self.numbers:
-            self.numbers.remove(number)
-            print(f"{self.name}'s remaining numbers: {list(self.numbers)}")
+        while number in self.dice:
+            self.dice.remove(number)
+        print(f"{self.name}'s remaining numbers: {self.dice}")
             
-    def has_numbers(self):
-        return bool(self.numbers)
+    def has_dice(self):
+        return bool(self.dice)
 
 class RandomNumberGame:
-    def __init__(self, num_players, numbers_per_player=6):
+    def __init__(self, num_players):
         self.players = []
-        self.numbers_per_player = numbers_per_player
-        self.min_number = 1
-        self.max_number = num_players * numbers_per_player
-        self.numbers_in_play = set()
         self.initialize_players(num_players)
-        
-    def initialize_players(self, num_players):
-        all_numbers = list(range(self.min_number, self.max_number + 1))
-        random.shuffle(all_numbers)
-
-        for i in range(num_players):
-            if len(all_numbers) < self.numbers_per_player:
-                raise ValueError('Not enough unique numbers available to assign to all players')
             
-            chosen_numbers = [all_numbers.pop() for _ in range(self.numbers_per_player)]
-            player = (Player(f'Player {i + 1}', chosen_numbers))
+    def initialize_players(self, num_players):
+        for i in range(num_players):
+            dice_roll = [random.randint(1, 6) for _ in range(6)]
+            player = Player(f'Player {i + 1}', dice_roll)
             self.players.append(player)
-            self.numbers_in_play.update(player.numbers)
-    
-    def show_numbers(self):
+            
+    def show_dice(self):
         for player in self.players:
-            print(f'{player.name}: {list(player.numbers)}')
+            print(f'{player.name}: {player.dice}')
     
     def start_game(self):
         print('Starting the game')
 
-        while len(self.numbers_in_play) > 0:
+        while len(self.players) > 1:
+            players_to_remove = []
             for player in self.players:
-                if not player.has_numbers():
+                if not player.has_dice():
                     continue
                 
-                input(f"{player.name}'s turn to spin the randomizer. Press Enter")
-                random_number = random.choice(list(self.numbers_in_play))
-                print(f'{player.name} is spinning the randomizer: {random_number}')
+                input(f"{player.name}'s turn to roll the dice. Press Enter")
+                dice_roll = random.randint(1, 6)
+                print(f'{player.name} is rolling the dice: {dice_roll}')
+                
+                for p in self.players:
+                    p.remove_number(dice_roll)
+                    if not p.has_dice() and p not in players_to_remove:
+                        players_to_remove.append(p)
+                        
+                        
+            for player in players_to_remove:
+                if player in self.players:
+                    print(f'{player.name} has lost all dice and is out of the game!!!')
+                    self.players.remove(player)
 
-                for players in self.players:
-                    players.remove_number(random_number)
-
-                if not any(random_number in players.numbers for players in self.players):
-                    self.numbers_in_play.discard(random_number)
-
-                if not player.has_numbers():
-                    print(f'{player.name} has lost all numbers and is out of the game!!!')
-
-            active_players = [players for players in self.players if players.has_numbers()]
-            if len(active_players) == 1:
-                print(f'{active_players[0].name} is the winner!!!')
-                return active_players
-            elif len(active_players) == 0:
-                print('Draw!, No players have any numbers left!')
+            if len(self.players) == 1:
+                print(f'{self.players[0].name} is the winner!!!')
+                break
+            elif len(self.players) == 0:
+                print('Draw!, No players have any dice left!')
                 break
             
     def show_players_numbers(self):
@@ -74,5 +65,5 @@ class RandomNumberGame:
 
 user_input = int(input('How many players will join the game?: '))
 game = RandomNumberGame(user_input)
-game.show_numbers()
+game.show_dice()
 game.start_game()
