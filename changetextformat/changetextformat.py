@@ -1,6 +1,6 @@
 class StringConverter:
     def __init__(self, string):
-        self.string = string
+        self.string = string.replace(' ', '')
 
     def sentence(self):
         if not self.string.isalpha():
@@ -15,8 +15,19 @@ class StringConverter:
                 snake_case_string += char.lower()
         return snake_case_string
     
+max_length = 15
 
-user_input = input('Enter a sentence to convert to snake case: ')
-sentence_input = StringConverter(user_input)
-result = sentence_input.sentence()
-print(result)
+results = []
+
+while True:
+    user_input = input('Enter a sentence to convert to snake case (max = 15字) or type "end" to close program: ')
+    if user_input.lower() == 'end':
+        break
+    
+    limit_input = user_input[:max_length]
+    sentence_input = StringConverter(limit_input)
+    result = sentence_input.sentence()
+    results.append(result)
+
+for result in results:
+    print(result)
