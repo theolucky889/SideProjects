@@ -5,13 +5,26 @@ class Player:
         self.name = name
         self.dice = list(dice)
         
-    def remove_number(self, number):
-        while number in self.dice:
-            self.dice.remove(number)
+    def remove_number(self, numbers_to_remove):
+        for number in numbers_to_remove:
+            while number in self.dice:
+                self.dice.remove(number)
         print(f"{self.name}'s remaining numbers: {self.dice}")
             
+    def remove_by_category(self, category):
+        categories = {
+        'odd': [1, 3, 5],
+        'even': [2, 4, 6],
+        'big': [4, 5, 6],
+        'small': [1, 2, 3],
+        'red': [1, 4],
+        'black': [2, 3, 5, 6],
+        }
+        return categories.get(category, [])
+
     def has_dice(self):
         return bool(self.dice)
+    
 
 class RandomNumberGame:
     def __init__(self, num_players):
@@ -37,12 +50,19 @@ class RandomNumberGame:
                 if not player.has_dice():
                     continue
                 
-                input(f"{player.name}'s turn to roll the dice. Press Enter")
-                dice_roll = random.randint(1, 6)
-                print(f'{player.name} is rolling the dice: {dice_roll}')
+                # print(f"{player.name}'s turn to roll the dice. Press Enter")
+                # input()
+                # dice_roll = random.randint(1, 6)
+                # print(f'{player.name} is rolling the dice: {dice_roll}')
+                
+                choice = input(f'{player.name}, choose a category to remove (odd, even, red, black, big, small): ').lower().strip()
+                while choice not in ['odd', 'even', 'red', 'black', 'big', 'small']:
+                    choice = input('Invalid choice, please input a correct category(odd, even, red, black, big, small)').lower().strip()
+                
+                numbers_to_remove = player.remove_by_category(choice)
                 
                 for p in self.players:
-                    p.remove_number(dice_roll)
+                    p.remove_number(numbers_to_remove)
                     if not p.has_dice() and p not in players_to_remove:
                         players_to_remove.append(p)
                         
