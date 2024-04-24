@@ -10,6 +10,10 @@ class Player:
             while number in self.dice:
                 self.dice.remove(number)
         print(f"{self.name}'s remaining numbers: {self.dice}")
+
+    def show_dice(self):
+        dice_show = ['*' for _ in self.dice]
+        print(f'{self.name} has dice: {dice_show}')
             
     def remove_by_category(self, category):
         categories = {
@@ -24,9 +28,6 @@ class Player:
 
     def has_dice(self):
         return bool(self.dice)
-    
-    def show_dice(self):
-        print(f'{self.name}: {self.dice}')
     
 
 class RandomNumberGame:
@@ -79,9 +80,9 @@ class RandomNumberGame:
                 print('Draw!, No players have any dice left!')
                 break
             
-    def show_players_numbers(self):
-        for player in self.players:
-            print(f'{player.name}: {player.numbers}')
+    # def show_players_numbers(self):
+    #     for player in self.players:
+    #         print(f'{player.name}: {player.numbers}')
 
 user_input = int(input('How many players will join the game?: '))
 game = RandomNumberGame(user_input)
