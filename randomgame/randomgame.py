@@ -25,6 +25,9 @@ class Player:
     def has_dice(self):
         return bool(self.dice)
     
+    def show_dice(self):
+        print(f'{self.name}: {self.dice}')
+    
 
 class RandomNumberGame:
     def __init__(self, num_players):
@@ -37,9 +40,6 @@ class RandomNumberGame:
             player = Player(f'Player {i + 1}', dice_roll)
             self.players.append(player)
             
-    def show_dice(self):
-        for player in self.players:
-            print(f'{player.name}: {player.dice}')
     
     def start_game(self):
         print('Starting the game')
@@ -85,5 +85,4 @@ class RandomNumberGame:
 
 user_input = int(input('How many players will join the game?: '))
 game = RandomNumberGame(user_input)
-game.show_dice()
 game.start_game()
