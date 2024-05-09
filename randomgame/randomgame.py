@@ -9,11 +9,14 @@ class Player:
         for number in numbers_to_remove:
             while number in self.dice:
                 self.dice.remove(number)
-        print(f"{self.name}'s remaining numbers: {self.dice}")
-
+        print(f"{self.name}'s remaining numbers: {self.hide_dice_count()}")
+    
     def show_dice(self):
-        dice_show = ['*' for _ in self.dice]
-        print(f'{self.name} has dice: {dice_show}')
+        # dice_show = ['*' for _ in self.dice]
+        print(f'{self.name} has dice: {self.hide_dice_count()}')
+            
+    def hide_dice_count(self):
+        return ' '.join(['*' for _ in self.dice])
             
     def remove_by_category(self, category):
         categories = {
@@ -25,6 +28,10 @@ class Player:
         'black': [2, 3, 5, 6],
         }
         return categories.get(category, [])
+    
+    def reroll_dice(self):
+        self.dice = [random.randint(1, 6) for _ in range(len(self.dice))]
+        print(f'{self.name} rolls the dice again: {self.hide_dice_count()}')
 
     def has_dice(self):
         return bool(self.dice)
@@ -44,12 +51,14 @@ class RandomNumberGame:
     
     def start_game(self):
         print('Starting the game')
-
         while len(self.players) > 1:
             players_to_remove = []
             for player in self.players:
                 if not player.has_dice():
                     continue
+                
+                
+                player.reroll_dice()
                 
                 # print(f"{player.name}'s turn to roll the dice. Press Enter")
                 # input()
