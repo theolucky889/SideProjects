@@ -51,14 +51,15 @@ class RandomNumberGame:
     
     def start_game(self):
         print('Starting the game')
+        
         while len(self.players) > 1:
             players_to_remove = []
             for player in self.players:
                 if not player.has_dice():
                     continue
                 
-                
-                player.reroll_dice()
+                for player in self.players:
+                    player.reroll_dice()
                 
                 # print(f"{player.name}'s turn to roll the dice. Press Enter")
                 # input()
